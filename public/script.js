@@ -1,15 +1,18 @@
 let socket=io()
 
+let btnSend=document.getElementById('btnSend')
+let inpMsg=document.getElementById('inpMsg')
+let ulMsgList=document.getElementById('ulMsgList')
 
-let boomBtn=document.getElementById('boom')
-
-boomBtn.onclick=function(){
-    socket.emit('boom')
+btnSend.onclick=function(){
+    socket.emit('msg_send',{
+    msg:inpMsg.value
+})
+inpMsg.value
 }
 
-
-socket.on('whizz',()=>{
-    let div=document.createElement('div')
-    div.innerText='whizz'
-    document.body.appendChild(div)
+socket.on('msg-received',(data)=>{
+    let liNewMsg=document.createElement('li')
+    liNewMsg.innerText=data.msg
+    ulMsgList.appendChild(liNewMsg)
 })
