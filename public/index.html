@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
      <title>Document</title>
-    
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script defer src="script.js"></script>
 </head>
 <body>
     <h1>SocketIo-Sample</h1>
-    <input id="inpMsg">
-    <button id ="btnSend">SEND</button>
-    <ul id="ulMsgList"></ul>
+   <div id="loginBox">
+    <input id="inpUsername">
+    <button id="btnStart">Start</button>
+
+   </div>
+   <div id="chatBox">
+   <input id="inpNewMsg">
+   <button id="btnSendMsg">Send</button>
+  <ul id="ulMsgs"></ul>
+
+   </div>
 </body>
 </html>

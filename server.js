@@ -14,8 +14,9 @@ const io=socketio(server)
 io.on('connection',(socket)=>{
     console.log('Socket is connected on id :-',socket.id)
 
-   socket.on('msg_send',(data)=>{
-    io.emit('msg-received', data)
+   socket.on('login',(data)=>{
+    socket.join(data.username)
+    socket.emit('logged_in,')
    })
 
 })
